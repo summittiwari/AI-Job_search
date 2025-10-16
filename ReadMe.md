@@ -1,62 +1,88 @@
-# AI Job Platform
+# AI-Job_search
 
-This project is a full-stack AI-powered job search portal with a React (Vite) frontend, Flask backend, and PostgreSQL database. It is fully containerized using Docker Compose.
+## Overview
+An AI-powered job search engine that helps users find relevant job opportunities using advanced matching algorithms and web scraping technologies.
 
-## Prerequisites
-- [Docker](https://www.docker.com/products/docker-desktop) and Docker Compose installed
-- (Optional) Node.js and Python for local development
+## How to Run the Application
 
-## Project Structure
-```
-Backend/        # Flask backend
-Frontend/       # React frontend (Vite)
-database/       # SQL schema and migrations
-docker-compose.yml
-.env            # Environment variables
-```
+### Prerequisites
+- Docker and Docker Compose installed on your system
+- Git (for cloning the repository)
 
-## Quick Start (Docker Compose)
+### Quick Start with Docker Compose
 1. Clone the repository:
+   ```bash
+   git clone https://github.com/summittiwari/AI-Job_search.git
+   cd AI-Job_search
    ```
-   git clone <your-repo-url>
-   cd <project-folder>
-   ```
-2. Set up your `.env` file in the root directory:
-   ```
-   DATABASE_URL=postgresql://postgres:postgres@db:5432/ai_job_platform
-   ```
-3. Build and start all services:
-   ```
+
+2. Start the application:
+   ```bash
    docker-compose up --build
    ```
-4. Access the app:
-   - Frontend: http://localhost:5173/
-   - Backend:  http://localhost:5000/
-   - Database: 5432 (PostgreSQL)
 
-## Local Development (Optional)
-### Backend
-```
-cd Backend
-pip install -r requirements.txt  # (create this file as needed)
-python app.py
-```
+3. Access the application:
+   - Frontend: http://localhost:80
+   - Backend API: http://localhost:5000
+   - Database: localhost:5432 (PostgreSQL)
 
-### Frontend
-```
-cd Frontend
-npm install
-npm run dev
-```
+### Manual Setup (Alternative)
 
-## Database
-- The database schema is in `database/schema.sql`.
-- You can manage the database using pgAdmin or psql.
+#### Backend Setup
+1. Navigate to the Backend directory:
+   ```bash
+   cd Backend
+   ```
 
-## Notes
-- Make sure ports 5173 (frontend), 5000 (backend), and 5432 (db) are free.
-- Update environment variables as needed for production.
+2. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
----
+3. Set up environment variables (create a `.env` file):
+   ```
+   FLASK_ENV=development
+   DATABASE_URL=postgresql://postgres:postgres@localhost:5432/ai_job_platform
+   ```
 
-Feel free to open issues or contribute!
+4. Run the Flask application:
+   ```bash
+   python app.py
+   ```
+
+#### Frontend Setup
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install Node.js dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+#### Database Setup
+1. Install PostgreSQL locally or use Docker:
+   ```bash
+   docker run --name postgres-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=ai_job_platform -p 5432:5432 -d postgres:15
+   ```
+
+2. Run the schema:
+   ```bash
+   psql -h localhost -U postgres -d ai_job_platform -f database/schema.sql
+   ```
+
+## Project Structure
+See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for detailed information about the codebase organization.
+
+## Technologies Used
+- **Backend**: Flask (Python)
+- **Frontend**: React (with Vite)
+- **Database**: PostgreSQL
+- **Containerization**: Docker & Docker Compose
+- **AI/ML**: Vector embeddings for job matching
