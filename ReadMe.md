@@ -80,6 +80,34 @@ An AI-powered job search engine that helps users find relevant job opportunities
 ## Project Structure
 See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for detailed information about the codebase organization.
 
+## Contributing
+
+This repository is **public** and open for contributions! Anyone can view, fork, and contribute to the project.
+
+### How to Contribute
+1. Fork the repository on GitHub.
+2. Create a new branch for your feature or bug fix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add your commit message"
+   ```
+4. Push to your forked repository:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a Pull Request (PR) on the main repository with a clear description of your changes.
+
+### Guidelines
+- Follow the existing code style and project structure.
+- Test your changes thoroughly.
+- Update documentation if necessary.
+- Be respectful and collaborative in discussions.
+
+For major changes, please open an issue first to discuss what you would like to change.
+
 ## Technologies Used
 - **Backend**: Flask (Python)
 - **Frontend**: React (with Vite)
